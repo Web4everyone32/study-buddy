@@ -1,0 +1,136 @@
+
+/* Bold Professional UI — higher contrast, thicker strokes, stronger focus (visual-only) */
+:root{
+  --bg:#f6f7fb; --surface:#ffffff; --surface-2:#f2f5fb;
+  --text:#0b1220; --muted:#4b5563; --border:#d5dbe7;
+  --accent:#1f4bff; --accent-2:#2563eb; --success:#16a34a; --danger:#dc2626;
+  --ring: rgba(31,75,255,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#060a14; --surface:#0c1324; --surface-2:#0a1020;
+    --text:#e9eef8; --muted:#9aa4b2; --border:#223052;
+    --accent:#60a5fa; --accent-2:#3b82f6; --success:#22c55e; --danger:#ef4444;
+    --ring: rgba(96,165,250,.35);
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{width:520px;background:var(--bg);color:var(--text);font:14px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;-webkit-font-smoothing:antialiased}
+
+/* Header */
+.app-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:2px solid var(--border);background:var(--surface)}
+.brand{display:flex;gap:14px;align-items:center}
+.logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;font-weight:900;letter-spacing:.02em;box-shadow:0 8px 22px rgba(37,99,235,.25)}
+.titles h1{margin:0;font-size:18px;font-weight:800;letter-spacing:.01em}
+.subtitle{margin-top:2px;font-size:12.5px;color:var(--muted)}
+.status{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12.5px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--success)}
+.dot.offline{background:var(--danger)}
+.live{display:none}
+
+/* Tabs */
+.tabs{display:flex;gap:10px;padding:12px 14px;border-bottom:2px solid var(--border);background:var(--surface)}
+.tab{all:unset;display:inline-flex;align-items:center;justify-content:center;padding:9px 14px;border-radius:12px;cursor:pointer;
+  color:var(--muted);border:2px solid var(--border);font-weight:700;letter-spacing:.02em;transition:border-color .15s ease,color .15s ease,background .15s ease,box-shadow .15s ease}
+.tab:hover{color:var(--text);border-color:var(--accent)}
+.tab:focus-visible{box-shadow:0 0 0 4px var(--ring)}
+.tab.active{color:#fff;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-color:transparent;box-shadow:0 8px 18px rgba(31,75,255,.22)}
+
+/* Content */
+.content{padding:14px}
+.card{background:var(--surface);border:2px solid var(--border);border-radius:14px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 24px rgba(2,6,23,.05)}
+.input{padding:14px}
+.input-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.input-header label{font-weight:800}
+.input-tools{display:flex;align-items:center;gap:12px}
+.counter{color:var(--muted);font-size:12.5px}
+.textarea{width:100%;resize:vertical;min-height:130px;background:var(--surface-2);color:var(--text);border:2px solid var(--border);border-radius:12px;
+  padding:12px 14px;outline:none;transition:border-color .15s ease,box-shadow .15s ease}
+.textarea::placeholder{color:#7b8794}
+.textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+
+/* Controls & Buttons */
+.actions-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:12px}
+.inline-controls{display:flex;align-items:center;gap:10px}
+.btn{all:unset;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:9px 14px;border-radius:12px;border:2px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-weight:700;
+  transition:border-color .15s ease,box-shadow .15s ease,transform .05s ease,background .15s ease}
+.btn:hover{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));border-color:transparent;color:#fff;box-shadow:0 10px 24px rgba(31,75,255,.26)}
+.btn.danger{background:linear-gradient(180deg,#ef4444,#dc2626);border-color:transparent;color:#fff;box-shadow:0 10px 24px rgba(239,68,68,.26)}
+.btn.ghost{background:transparent}
+
+.select,.input-num{appearance:none;-webkit-appearance:none;background:var(--surface);color:var(--text);
+  border:2px solid var(--border);border-radius:12px;height:36px;padding:0 12px;font-weight:600;
+  transition:border-color .15s ease,box-shadow .15s ease}
+.select:focus,.input-num:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+.input-num{width:72px;text-align:center}
+
+/* Output */
+.output{margin-top:14px}
+.banner{padding:10px 12px;border-radius:12px;border:2px solid transparent;margin-bottom:12px}
+.banner.error{background:rgba(220,38,38,.08);color:#991b1b;border-color:rgba(220,38,38,.4)}
+.banner.info{background:rgba(37,99,235,.10);color:#1d4ed8;border-color:rgba(37,99,235,.45)}
+.out{min-height:130px;padding:14px}
+
+/* Prose */
+.prose h1,.prose h2,.prose h3{margin:10px 0 6px}
+.prose p{margin:8px 0}
+.prose ul,.prose ol{margin:8px 0 8px 20px}
+.prose code{background:rgba(2,6,23,.06);border-radius:8px;padding:2px 6px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace}
+@media (prefers-color-scheme: dark){ .prose code{background:rgba(255,255,255,.08)} }
+.prose pre{background:var(--surface-2);padding:12px;border-radius:12px;overflow:auto;border:2px solid var(--border)}
+
+/* Footer */
+.footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;color:var(--muted);border-top:2px solid var(--border);background:var(--surface)}
+
+/* Spinner */
+.spinner{position:fixed;inset:0;display:grid;place-items:center;pointer-events:none}
+.spinner .ring{width:28px;height:28px;border-radius:999px;border:4px solid rgba(0,0,0,.12);border-top-color:var(--accent);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Quiz cards */
+.qa{padding:12px;border:2px solid var(--border);border-radius:12px;margin:12px 0;background:var(--surface-2)}
+.q{font-weight:800;margin-bottom:6px}
+.choices{list-style:none;padding:0;margin:0 0 8px}
+.choice{display:flex;gap:8px;align-items:flex-start;padding:6px 8px;border-radius:10px;margin:4px 0}
+.choice .label{width:20px;font-weight:800;color:var(--muted)}
+.choice.correct{background:rgba(16,185,129,.14)}
+.choice.correct .label::after{content:"✓";margin-left:6px;color:var(--success);font-weight:800}
+.ex{color:var(--muted);font-style:italic}
+
+/* Utilities */
+.hidden{display:none !important}
+.muted{color:var(--muted)}
+
+
+/* --- Compare View & History --- */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compare-col{border:2px dashed var(--border);border-radius:10px;padding:10px;background:var(--surface-2)}
+.compare-col h3{margin:0 0 6px 0;font-weight:800}
+.diff-ins{background:rgba(16,185,129,.20);padding:0 2px;border-radius:4px}
+.diff-del{background:rgba(239,68,68,.20);padding:0 2px;border-radius:4px;text-decoration:line-through}
+.history-list{display:flex;flex-direction:column;gap:8px;padding:10px}
+.history-item{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;border:2px solid var(--border);border-radius:10px;padding:10px;background:var(--surface-2)}
+.history-meta{font-size:12.5px;color:var(--muted)}
+.history-title{font-weight:800;margin-bottom:4px}
+.history-actions{display:flex;gap:8px}
+.history-snippet{max-height:5.5em;overflow:hidden;color:var(--text)}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border-radius:999px;border:2px solid var(--border);font-size:12px;background:var(--surface)}
+
+
+/* --- Accessibility: Dyslexia-friendly mode & switch --- */
+.switch-wrap{display:inline-flex;align-items:center;gap:8px}
+.switch{appearance:none;-webkit-appearance:none;cursor:pointer;width:38px;height:22px;border-radius:999px;
+  border:2px solid var(--border);background:var(--surface-2);position:relative;outline:none}
+.switch::after{content:"";position:absolute;top:1px;left:1px;width:16px;height:16px;border-radius:999px;background:var(--border);transition:transform .15s ease,background .15s ease}
+.switch:focus-visible{box-shadow:0 0 0 4px var(--ring)}
+.switch:checked{background:linear-gradient(180deg,var(--accent),var(--accent-2));border-color:transparent}
+.switch:checked::after{background:#fff;transform:translateX(16px)}
+
+:root[data-access="dyslexia"] body{font-family:"OpenDyslexic","Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial}
+:root[data-access="dyslexia"] .textarea,
+:root[data-access="dyslexia"] .prose{line-height:1.8; letter-spacing:.02em; word-spacing:.02em}
+:root[data-access="dyslexia"] .prose p{margin:10px 0}

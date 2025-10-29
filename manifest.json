@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Study Buddy — Chrome Built‑in AI (Gemini Nano)",
+  "version": "0.2.0",
+  "description": "Summarize, quiz, simplify, and translate directly in the browser with Chrome’s built-in AI (Gemini Nano). Local-first, no server.",
+  "action": {
+    "default_title": "Study Buddy",
+    "default_popup": "src/popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "trial_tokens": [
+    "AIzaSyB9pomGtGnMj1XIYBdBvDTv8LAQHqGvgVo"
+  ],
+  "side_panel": {
+    "default_path": "src/sidepanel.html"
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  }
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Study Buddy — Side Panel</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>body{width:auto;}</style>
+</head>
+<body>
+  
+  <header class="app-header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">SB</div>
+      <div class="titles">
+        <h1>Study Buddy</h1>
+        <div class="subtitle">Summarize · Quiz · Translate · Simplify</div>
+      </div>
+    </div>
+    <div class="status">
+      <span id="live-badge" class="live hidden">Live</span>
+      <span id="conn-dot" class="dot offline"></span>
+      <span id="conn-label">Checking…</span>
+          <label class="switch-wrap" title="Dyslexia-friendly mode">
+        <input id="a11y-dyslexia" class="switch" type="checkbox" role="switch" aria-checked="false" />
+        <span class="muted">Dyslexia</span>
+      </label>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Tools">
+    <button class="tab active" data-tab="summarize" role="tab" aria-selected="true">Summarize</button>
+    <button class="tab" data-tab="quiz" role="tab" aria-selected="false">Quiz</button>
+    <button class="tab" data-tab="rewrite" role="tab" aria-selected="false">Simplify</button>
+    <button class="tab" data-tab="translate" role="tab" aria-selected="false">Translate</button>
+      <button class="tab" data-tab="history" role="tab" aria-selected="false">History</button>
+  </nav>
+
+  <main class="content">
+    <section class="input card" aria-labelledby="input-label">
+      <div class="input-header">
+        <label id="input-label" for="input">Input</label>
+        <div class="input-tools">
+          <button id="use-selection" class="btn ghost" type="button">Use page selection</button>
+          <div class="counter"><span id="count">0</span> chars</div>
+        </div>
+      </div>
+      <textarea id="input" class="textarea" rows="6" placeholder="Select text on the page or paste text here…"></textarea>
+      <div class="actions-row">
+        <div class="left">
+          <div id="read-controls" class="inline-controls">
+            <label for="read-level" class="muted">Reading level</label>
+            <select id="read-level" class="select">
+              <option value="original">Default</option>
+              <option value="eli5">Explain like I’m 5</option>
+              <option value="age12">Age 12</option>
+              <option value="expert">Expert</option>
+            </select>
+          </div>
+          <div id="quiz-controls" class="inline-controls hidden">
+            <span class="muted">Questions</span>
+            <input id="count" class="input-num" type="number" min="3" max="10" value="5" aria-label="Number of questions">
+          </div>
+          <div id="translate-controls" class="inline-controls hidden">
+            <label for="lang" class="muted">Language</label>
+            <select id="lang" class="select">
+              <option value="auto">Auto → English</option>
+              <option value="en:hi">English → Hindi</option>
+              <option value="en:ta">English → Tamil</option>
+              <option value="en:ja">English → Japanese</option>
+              <option value="en:es">English → Spanish</option>
+              <option value="en:fr">English → French</option>
+              <option value="hi:en">Hindi → English</option>
+              <option value="ta:en">Tamil → English</option>
+              <option value="ja:en">Japanese → English</option>
+              <option value="es:en">Spanish → English</option>
+              <option value="fr:en">French → English</option>
+            </select>
+          </div>
+        </div>
+        <div class="right">
+          <button id="run" class="btn primary" type="button">Run</button>
+          <button id="compare-toggle" class="btn ghost" type="button" title="Toggle Compare View">Compare</button>
+          <button id="stop" class="btn danger hidden" type="button" title="Stop (streaming)">Stop</button>
+          <button id="copy" class="btn ghost" type="button">Copy</button>
+          <button id="export-md" class="btn ghost" type="button" title="Export as Markdown">Export MD</button>
+          <button id="export-pdf" class="btn ghost" type="button" title="Export as PDF">Export PDF</button>
+          <button id="cards-md" class="btn ghost" type="button" title="Export flashcards/cloze as Markdown">Cards MD</button>
+          <button id="cards-csv" class="btn ghost" type="button" title="Export flashcards/cloze as CSV">Cards CSV</button>
+          <button id="download" class="btn ghost hidden" type="button">Download JSON</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="output" role="region" aria-live="polite" aria-busy="false">
+      <div id="error" class="banner error hidden" role="alert" aria-live="assertive"></div>
+      <div id="info" class="banner info hidden" role="status" aria-live="polite"></div>
+      <div id="out" class="card out prose"></div>
+    </section>
+  
+    <section id="history-view" class="card hidden" aria-labelledby="history-label" style="margin-top:12px">
+      <div class="input-header">
+        <label id="history-label">History</label>
+        <div class="input-tools">
+          <button id="history-refresh" class="btn" type="button" title="Refresh history">Refresh</button>
+          <button id="history-export" class="btn ghost" type="button" title="Export history JSON">Export</button>
+          <button id="history-clear" class="btn danger" type="button" title="Clear history">Clear</button>
+        </div>
+      </div>
+      <div id="history-list" class="history-list"></div>
+    </section>
+
+</main>
+
+  <footer class="footer">
+    <div class="muted">Chrome AI Status</div>
+    <div id="ai-status" class="muted">—</div>
+  </footer>
+
+  <div id="spinner" class="spinner hidden"><div class="ring"></div></div>
+  <script type="module" src="popup.js"></script></body>
+</html>
