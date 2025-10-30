@@ -40,6 +40,9 @@ Clear word chunking for improved readability
 1️⃣ Install **Chrome Beta**  
 👉 https://www.google.com/chrome/beta/
 
+Version Used : 143.0.7499.4 (Official Build) beta (64-bit) 
+Minimum version required : 143.0.0.0
+
 2️⃣ Enable required experimental features  
 Open: `chrome://flags`  
 Enable the following (search each in the flags list):
