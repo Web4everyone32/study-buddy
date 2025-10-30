@@ -100,10 +100,6 @@ Step	Action	Status
 📌 Testing should begin only after AI model download is complete.
 You will see ✅ Model Available status inside the extension UI.
 
-To verify manually:
-chrome://optimization-guide-internals
-
-Check: Models → Status: Ready
 
 ✅ Test Case 1 — Summarization
 
