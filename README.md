@@ -303,7 +303,7 @@ We welcome:
 - UI improvements  
 - Better quiz logic  
 
-Feel free to fork this project and submit PRs!
+Feel free to fork this project and submit PRs! See [CONTRIBUTING.md](CONTRIBUTING.md) for how to set up the project, test your change and open a pull request.
 
 ---
 
